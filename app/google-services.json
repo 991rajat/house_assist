@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "693076552084",
+    "firebase_url": "https://houseassist-7ec78.firebaseio.com",
+    "project_id": "houseassist-7ec78",
+    "storage_bucket": "houseassist-7ec78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693076552084:android:ebbfbf4ca698b318",
+        "android_client_info": {
+          "package_name": "android.example.house_assist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693076552084-ekcn48e0e7590bd0jmn734ukr7r0phsu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "android.example.house_assist",
+            "certificate_hash": "a4ea5a92609475df2cec27c9d9d8f32fc1fe38b9"
+          }
+        },
+        {
+          "client_id": "693076552084-36to7bt4io6or9a1i96r8vgjus6admuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyGslXKML4G9J8bmdMko2VoW54eiPiJns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693076552084-36to7bt4io6or9a1i96r8vgjus6admuk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
