@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:background="#fff"
+    tools:context=".Activity_Start">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/start_display_name_home"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/applogo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/playfair_display"
+        android:text="Home"
+        android:textStyle="bold"
+        android:id="@+id/start_display_name_home"
+        android:textColor="#3f51b5"
+        android:textSize="40sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_display_name_home"
+        android:fontFamily="@font/montserrat"
+        android:layout_centerInParent="true"
+        android:paddingStart="30dp"
+        android:text="      Repairs"
+        android:textStyle="bold"
+        android:id="@+id/start_display_name"
+        android:textColor="#f29a1f"
+        android:textSize="40sp" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_toLeftOf="@id/start_display_name_home"
+        android:layout_marginTop="250dp"
+        android:visibility="gone"
+        android:src="@drawable/icons8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true"
+        android:text="Services at your doorstep"
+        android:textSize="20sp"
+        android:id="@+id/start_services"
+        android:fontFamily="@font/open_sans_light"
+        android:layout_below="@+id/start_display_name"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="LOG IN"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:fontFamily="@font/open_sans_light"
+        android:layout_below="@+id/start_services"
+        android:id="@+id/start_login"
+        android:textColor="#000"/>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/start_login"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#3f51b5"
+            android:fontFamily="@font/open_sans"
+            android:id="@+id/start_customer"
+            android:textSize="17sp"
+            android:textColor="#fff"
+            android:padding="20dp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:text="Customer"/>
+
+        <Button
+            android:id="@+id/start_service_provider"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#ff9800"
+            android:fontFamily="@font/open_sans"
+            android:text="Service Provider"
+            android:padding="20dp"
+            android:textSize="17sp"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>
