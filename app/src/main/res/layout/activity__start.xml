@@ -13,20 +13,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/start_display_name_home"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="20dp"
         android:src="@drawable/applogo"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/playfair_display"
         android:text="Home"
         android:textStyle="bold"
         android:id="@+id/start_display_name_home"
-        android:textColor="#3f51b5"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="40sp" />
 
     <TextView
@@ -59,39 +60,41 @@
         android:textSize="20sp"
         android:id="@+id/start_services"
         android:fontFamily="@font/open_sans_light"
-        android:layout_below="@+id/start_display_name"
+        android:layout_above="@+id/start_login"
+        android:layout_marginBottom="10dp"
         android:textColor="#000"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:text="LOG IN"
         android:textStyle="bold"
         android:textSize="20sp"
         android:fontFamily="@font/open_sans_light"
-        android:layout_below="@+id/start_services"
+        android:layout_above="@+id/linearlayoutbox"
+        android:layout_marginBottom="10dp"
         android:id="@+id/start_login"
         android:textColor="#000"/>
 
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_below="@+id/start_login"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+
+        android:id="@+id/linearlayoutbox"
         android:orientation="horizontal"
         >
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:backgroundTint="#3f51b5"
-            android:fontFamily="@font/open_sans"
+            android:background="@drawable/background_customer"
+            android:fontFamily="@font/montserrat"
             android:id="@+id/start_customer"
             android:textSize="17sp"
             android:textColor="#fff"
-            android:padding="20dp"
             android:textStyle="bold"
             android:textAllCaps="false"
             android:text="Customer"/>
@@ -99,15 +102,15 @@
         <Button
             android:id="@+id/start_service_provider"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:backgroundTint="#ff9800"
-            android:fontFamily="@font/open_sans"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_service_provider"
+            android:fontFamily="@font/montserrat"
             android:text="Service Provider"
-            android:padding="20dp"
-            android:textSize="17sp"
             android:textAllCaps="false"
             android:textColor="#fff"
+            android:textSize="17sp"
             android:textStyle="bold" />
     </LinearLayout>
 
