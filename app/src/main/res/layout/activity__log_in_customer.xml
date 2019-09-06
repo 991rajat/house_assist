@@ -61,7 +61,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Email"
-                            android:focusableInTouchMode="true"
                             android:textStyle="bold"
                             android:drawableRight="@drawable/ic_email_black_24dp"
                             android:textSize="20sp"
@@ -75,7 +74,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:focusableInTouchMode="true"
+
                         android:layout_marginTop="5dp"
                         app:passwordToggleEnabled="true"
                         app:boxBackgroundMode="filled"
