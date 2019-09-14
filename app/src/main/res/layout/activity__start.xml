@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
     android:background="#fff"
     tools:context=".Activity_Start">
 
@@ -82,7 +82,6 @@
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="80dp"
-
         android:id="@+id/linearlayoutbox"
         android:orientation="horizontal"
         >
@@ -112,6 +111,24 @@
             android:textColor="#fff"
             android:textSize="17sp"
             android:textStyle="bold" />
+
+
     </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/start_guest_user"
+        android:padding="14dp"
+        android:layout_centerInParent="true"
+        android:paddingStart="3dp"
+        android:paddingEnd="3dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Guest"
+        android:textAllCaps="false"
+        android:backgroundTint="#546E7A"
+        android:textSize="17sp"
+        android:textColor="#fff"/>
 
 </RelativeLayout>

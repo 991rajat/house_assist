@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="#fff"
     android:padding="10dp"
     tools:context=".Activity_OTPCustomer">
 
@@ -15,7 +15,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
             android:layout_marginTop="40dp"
+            android:background="#fff"
             android:orientation="vertical">
 
             <TextView
@@ -25,7 +27,7 @@
                 android:fontFamily="@font/open_sans"
                 android:text="Verification Code"
                 android:textAlignment="center"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -35,7 +37,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Enter the OTP sent to"
                 android:textAlignment="center"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="20sp"
                 android:fontFamily="@font/open_sans" />
 
@@ -45,19 +47,30 @@
                 android:layout_marginTop="10dp"
                 android:text="+91 XXXXXXXXXX"
                 android:textAlignment="center"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="20sp"
                 android:id="@+id/otpcustomer_mobile"
                 android:textStyle="bold"
                 android:fontFamily="@font/open_sans"/>
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:civ_border_color="@color/colorAccent"
+                app:civ_border_width="2dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icons8_mobile_email_64"/>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                app:cardElevation="3dp"
-                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
                 android:padding="20dp"
                 app:cardBackgroundColor="#fff">
 
@@ -130,6 +143,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:indeterminate="true"
                 android:indeterminateTint="@color/whiteTextColor"
                 android:visibility="gone"
                 android:progressTint="#00FFFFFF" />

@@ -2,22 +2,30 @@ package android.example.house_assist;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.content.AsyncTaskLoader;
 
 import android.app.ProgressDialog;
+import android.content.AsyncQueryHandler;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.ybq.android.spinkit.style.FoldingCube;
+
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
@@ -26,21 +34,28 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class Activity_OTPCustomer extends AppCompatActivity {
 
     private EditText otpCustomer;
-    private ProgressDialog progressDialog;
+    private ProgressBar progressBar;
     private TextView otpCustomer_mobile,otpcustomer_resend;
     private FirebaseAuth mAuth;
     private boolean mtoken = false;
     private Button otpSubmit;
+    private ProgressDialog progressDialog;
     private String name,mobile,password,email;
+    private FirebaseFirestore myDB;
     private static String TAG = "TAG";
     private String codeSent;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +66,7 @@ public class Activity_OTPCustomer extends AppCompatActivity {
         mobile = intent.getStringExtra("mobile");
         password = intent.getStringExtra("password");
         email = intent.getStringExtra("email");
+        progressDialog = new ProgressDialog(Activity_OTPCustomer.this);
         Log.d(TAG,name+" "+mobile+" "+email+" "+password);
 
         //initialize
@@ -59,9 +75,10 @@ public class Activity_OTPCustomer extends AppCompatActivity {
         otpCustomer_mobile = findViewById(R.id.otpcustomer_mobile);
         otpcustomer_resend = findViewById(R.id.otpcustomer_resend);
         mAuth = FirebaseAuth.getInstance();
+        myDB = FirebaseFirestore.getInstance();
         //Running Phone Authentication OTP
         otpCustomer_mobile.setText("+91"+mobile);
-        progressDialog = new ProgressDialog(this);
+        progressBar = findViewById(R.id.spin_kit);
 
 
         otpSubmit.setOnClickListener(new View.OnClickListener() {
@@ -89,18 +106,16 @@ public class Activity_OTPCustomer extends AppCompatActivity {
             }
         });
 
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
         otpcustomer_resend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog.setCancelable(true);
-                progressDialog.setTitle("Hold ryt there sparky");
-                progressDialog.setMessage("OTP verification in Progress");
-                progressDialog.getWindow().setGravity(Gravity.CENTER);
-                progressDialog.show();
+                progressBarSet();
                 sendVerificationCode("+91"+mobile);
             }
         });
 
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
@@ -109,7 +124,9 @@ public class Activity_OTPCustomer extends AppCompatActivity {
 
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e) {
-                progressDialog.dismiss();
+                progressBarUnset();
+                Toast.makeText(Activity_OTPCustomer.this,"Authnetication Failed",Toast.LENGTH_LONG).show();
+
             }
 
             @Override
@@ -121,15 +138,12 @@ public class Activity_OTPCustomer extends AppCompatActivity {
         };
         if(intent.getStringExtra("type").equals("OTP"))
         {
-            progressDialog.setCancelable(true);
-            progressDialog.setTitle("Hold ryt there sparky");
-            progressDialog.setMessage("OTP verification in Progress");
-            progressDialog.getWindow().setGravity(Gravity.CENTER);
-            progressDialog.show();
+            progressBarSet();
             sendVerificationCode("+91"+mobile);
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
     private void sendVerificationCode(final String phoneNumber) {
         Log.d(TAG,"send");
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -141,6 +155,7 @@ public class Activity_OTPCustomer extends AppCompatActivity {
 
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
     private void signInWithEmailAndPassword()
     {
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -149,26 +164,89 @@ public class Activity_OTPCustomer extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            SharedPreferences sharedPreferences = getSharedPreferences("UID", Context.MODE_PRIVATE);
+                            sharedPreferences.edit().putString("email",email).apply();
+                            sharedPreferences.edit().putString("flag","user").apply();
+                            sharedPreferences.edit().putString("location","not").apply();
                             Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            progressDialog.dismiss();
-                            startActivity(new Intent(Activity_OTPCustomer.this,MainActivity.class));
+                            Map<String,Object> user = new HashMap<>();
+                            user.put("name",name);
+                            user.put("email",email);
+                            user.put("mobile",mobile);
+                            user.put("address1","NA");
+                            user.put("address2","NA");
+                            user.put("state","NA");
+                            user.put("pincode","NA");
+                            user.put("locality","NA");
+                            user.put("fulladdress","NA");
+                            user.put("lat",0.0);
+                            user.put("lng",0.0);
+                            myDB.collection("users").document(email).set(user).
+                                 addOnSuccessListener(new OnSuccessListener<Void>() {
+                                     @Override
+                                     public void onSuccess(Void aVoid) {
+                                         progressBarUnset();
+                                         Toast.makeText(Activity_OTPCustomer.this, "Welcome",
+                                                 Toast.LENGTH_SHORT).show();
+                                         Intent intent = new Intent(Activity_OTPCustomer.this,MainActivity.class);
+                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                         startActivity(intent);
+                                     }
+                                 }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+
+                                }
+                            });
+
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            progressDialog.dismiss();
+                            Log.d(TAG, "createUserWithEmail:failure", task.getException());
+                            progressBarUnset();
                             Toast.makeText(Activity_OTPCustomer.this, "Authentication failed. User Already Exist",
                                     Toast.LENGTH_SHORT).show();
 
                         }
 
                         // ...
+                        Map<String,Object> map = new HashMap<>();
+                        map.put("time",0);
+                        map.put("date",0);
+                        map.put("service_provider_id",0);
+                        map.put("name","name");
+                        map.put("mobile","000000");
+                        map.put("price","000000");
+                        map.put("type","NA");
+                        myDB.collection("orders").document(email).collection("history").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d(TAG,"orders");
+                            }
+                        });
                     }
                 });
+
+
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+    void progressBarSet()
+    {
+        progressDialog.setMessage("OTP Verification!");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+    }
+
+    void progressBarUnset()
+    {
+        progressDialog.dismiss();
     }
 
 

@@ -1,23 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+    android:id="@+id/activity_main_drawer_layout"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <Button
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/main_activity_toolbar"
+            app:titleTextColor="#fff"
+            app:titleTextAppearance="@style/RobotoTextViewStyle"
+            android:layout_width="match_parent"
+            app:popupTheme="@color/whiteTextColor"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_height="wrap_content"
+            android:background="#212121"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/activit_main_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SIGN OUT"
-        android:id="@+id/mainactivity_signout"/>
+        android:layout_gravity="bottom"
+        app:itemIconTint="#212121"
+        app:itemTextAppearance="@style/RobotoTextViewStyle"
+        app:itemTextColor="#212121"
+        android:background="@color/whiteTextColor"
+        app:menu="@menu/main_activity_bottom_menu"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/activity_main_navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_gravity="start"
+        app:itemTextAppearance="@style/RobotoTextViewStyle"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:itemTextColor="#212121"
+        app:itemBackground="@color/whiteTextColor"
+        app:menu="@menu/activity_main_drawer"
+        android:layout_height="match_parent"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

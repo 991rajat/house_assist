@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FAFAFA"
+    tools:context=".Fragment_Account">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#000"
+                android:orientation="horizontal"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="0dp"
+                    android:padding="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".3"
+                    app:civ_border_width="5dp"
+                    app:civ_border_color="#ffffff"
+                    android:src="@drawable/icons_profile"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:padding="17dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Guest"
+                        android:id="@+id/fragment_account_name"
+                        android:textSize="20sp"
+                        android:textColor="#fff"
+                        android:fontFamily="@font/montserrat"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fragment_account_details"
+                        android:textColor="#fff"
+                        android:text="+919918385660 \nrajat13.kumar@gmail.com"
+                        android:fontFamily="@font/montserrat"/>
+
+                </LinearLayout>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/fragment_account_edit"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center"
+
+                    android:layout_weight=".2"
+                    android:src="@drawable/ic_edit_black_24dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fragment_account_allusers"
+                    android:text="  Users"
+                    android:visibility="gone"
+                    android:textSize="17sp"
+                    android:textColor="#000"
+                    android:fontFamily="@font/montserrat"
+                    android:drawableLeft="@drawable/ic_visibility_black_24dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="1dp"
+                    android:id="@+id/fragment_account_allusersline"
+                    android:visibility="gone"
+                    android:background="#455A64"/>
+
+                <TextView
+                    android:id="@+id/fragment_account_myorders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:drawableLeft="@drawable/ic_local_shipping_black_24dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="  My Orders"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="1dp"
+                    android:background="#455A64"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fragment_account_address"
+                    android:text="  Manage Address"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:fontFamily="@font/montserrat"
+                    android:drawableLeft="@drawable/ic_place_black_24dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="1dp"
+                    android:background="#455A64"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="wrap_content"
+                    android:text="  Rate Us"
+                    android:id="@+id/fragment_account_rateus"
+                    android:textSize="17sp"
+                    android:textColor="#000"
+                    android:fontFamily="@font/montserrat"
+                    android:drawableLeft="@drawable/ic_rate_review_black_24dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="1dp"
+                    android:background="#455A64"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="wrap_content"
+                    android:text="  Help"
+                    android:textSize="17sp"
+                    android:id="@+id/fragment_account_help"
+                    android:textColor="#000"
+                    android:fontFamily="@font/montserrat"
+                    android:drawableLeft="@drawable/ic_help_black_24dp"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#fff"
+                android:layout_height="wrap_content"
+                android:text="Sign Out"
+                android:id="@+id/fragment_account_signout"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:elevation="5dp"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

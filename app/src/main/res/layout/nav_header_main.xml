@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_container"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:background="#212121"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+<!--    <ImageView-->
+<!--        android:id="@+id/img_header_bg"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:src="@drawable/icons_profile" />-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:src="@drawable/icons_profile"
+            android:layout_gravity="center"
+            android:layout_height="96dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#ffffff"/>
+
+
+        <TextView
+            android:id="@+id/nav_header_name"
+            android:textColor="#fff"
+            android:textAlignment="center"
+            android:text="Guest"
+
+            android:fontFamily="@font/montserrat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <TextView
+            android:id="@+id/nav_header_email"
+            android:text="rajat13@gmail.com"
+            android:textAlignment="center"
+            android:padding="1dp"
+            android:textColor="#fff"
+            android:fontFamily="@font/montserrat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</RelativeLayout>

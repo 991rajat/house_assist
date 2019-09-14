@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="horizontal"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="0dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:layout_height="match_parent"
+            app:civ_border_color="#000"
+            app:civ_border_width="1dp"
+            android:layout_weight=".3"
+            android:src="@drawable/icons_profile"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:padding="7dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guest"
+                android:id="@+id/fragment_order_current_row_name"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:fontFamily="@font/montserrat"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_order_current_row_details"
+                android:text="+919918385660 \nrajat13.kumar@gmail.com"
+                android:fontFamily="@font/montserrat"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_order_current_row_service"
+                android:text="Service : "
+                android:fontFamily="@font/montserrat"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/fragment_account_edit"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:layout_weight=".2"
+            android:src="@drawable/ic_visibility_black_24dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#fff"
+            android:text="Not Done"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:textSize="20sp"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4ebfed"
+            android:text="Done"
+            android:id="@+id/fragment_order_current_row_done"
+            android:textColor="#fff"
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

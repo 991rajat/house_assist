@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">house_assist</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="access_token">pk.eyJ1IjoicmFqYXQ4Mzg1NjYwIiwiYSI6ImNrMGNlaHcwejE0YnYzbXFsbHpmem9wYjIifQ.MupnCVx_f9ghH-VgI_Zx4g</string>
 </resources>

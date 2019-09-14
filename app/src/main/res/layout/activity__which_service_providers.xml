@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_WhichServiceProviders">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/activity_whichserviceprovider_toobar_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:titleTextColor="#fff"
+                app:titleTextAppearance="@style/RobotoTextViewStyle"
+                app:theme="@style/ThemeOverlay.AppCompat"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:background="#212121"
+                android:id="@+id/activity_whichserviceprovider_toolbar"/>
+            <com.miguelcatalan.materialsearchview.MaterialSearchView
+                android:id="@+id/activity_activity_whichserviceprovider_tooba_search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </FrameLayout>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/activity_whichserviceprovider_progressbar"
+        android:indeterminate="true"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_below="@id/activity_whichserviceprovider_toobar_container"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="?attr/actionBarSize"
+        android:id="@+id/activity_whichserviceprovider_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

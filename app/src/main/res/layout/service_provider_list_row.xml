@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:id="@+id/service_provider_list_row_layout"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="0dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:layout_height="match_parent"
+            app:civ_border_color="#000"
+            app:civ_border_width="1dp"
+            android:layout_weight=".3"
+            android:src="@drawable/icons_profile"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight=".7"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guest"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/service_provider_list_row_name"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:fontFamily="@font/montserrat"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/service_provider_list_row_service"
+                android:textSize="17sp"
+                android:text="Service : "
+                android:fontFamily="@font/montserrat"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/service_provider_list_row_rating"
+                android:backgroundTint="#000"
+                android:gravity="center"
+                android:drawableRight="@drawable/ic_star_black_24dp"
+                android:fontFamily="@font/montserrat"
+                android:text="5.0"
+                android:textColor="#fff"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_directions_bus_black_24dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="17.2Km"
+                android:id="@+id/service_provider_list_row_distance"
+                android:fontFamily="@font/montserrat"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

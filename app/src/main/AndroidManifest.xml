@@ -3,24 +3,46 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="android.example.house_assist">
 
-    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_OTPCustomer"></activity>
+        <activity android:name=".Activity_Previous_Orders"></activity>
+        <activity
+            android:name=".Activity_Service_Booked"
+            android:parentActivityName=".Activity_WhichServiceProviders" />
+        <activity
+            android:name=".Activity_WhichServiceProviders"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".Activity_Map" />
+        <activity
+            android:name=".Activity_Edit_Profile"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Activity_All_ServiceUser"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".Activity_Admin_Authenticate" />
+        <activity android:name=".Activity_ServiceProviderDetails" />
+        <activity android:name=".Activity_OTPServiceProvider" />
+        <activity
+            android:name=".Activity_LogInServiceProvider"
+            android:parentActivityName=".Activity_Start" />
+        <activity
+            android:name=".Activity_RegisterServiceProvider"
+            android:parentActivityName=".Activity_LogInServiceProvider" />
+        <activity android:name=".Activity_OTPCustomer" />
         <activity
             android:name=".Activity_LogInCustomer"
             android:parentActivityName=".Activity_Start" />
         <activity
             android:name=".Activity_RegisterCustomer"
-            android:parentActivityName=".Activity_Start" />
-        <activity android:name=".Activity_Start" />
+            android:parentActivityName=".Activity_LogInCustomer" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity_Start"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,11 +50,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <dist:module dist:instant="true" />
 

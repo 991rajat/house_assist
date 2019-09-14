@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#fafafa"
+    android:layout_height="300dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="50dp"
+
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rate Us"
+            android:padding="10dp"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat"
+            android:textColor="#fff"
+            android:background="#000"
+            android:textSize="17sp"/>
+
+        <RatingBar
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/ratingBar"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="3"/>
+
+        <Button
+            android:id="@+id/ratingButton"
+            android:layout_width="134dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#fff"
+            android:elevation="5dp"
+            android:fontFamily="@font/montserrat"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Submit"
+            android:textColor="#000" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

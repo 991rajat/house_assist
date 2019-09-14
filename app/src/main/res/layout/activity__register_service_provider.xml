@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:theme="@style/AppThemeService"
+    android:background="#fff"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#fff"
+            android:focusableInTouchMode="true"
+            android:padding="20dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="Service Provider\nHere is First Step! \nRegistration"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="3dp"
+                android:layout_marginLeft="2dp"
+                android:background="@color/colorAccent2"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                app:cardBackgroundColor="@color/whiteTextColor"
+                app:cardElevation="5dp"
+                android:padding="20dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:orientation="vertical">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/colorAccent2">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Name"
+                            android:id="@+id/register_serviceprovider_name"
+                            android:textStyle="bold"
+
+                            android:textSize="20sp"
+                            android:drawableRight="@drawable/ic_person_black_24dp"
+                            android:textColorHint="#fff"
+                            android:fontFamily="@font/open_sans"
+                            android:inputType="textPersonName" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/colorAccent2">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Mobile No."
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+
+                            android:drawableRight="@drawable/ic_phone_black_24dp"
+                            android:id="@+id/register_serviceprovider_mobile"
+                            android:textColorHint="#fff"
+                            android:fontFamily="@font/open_sans"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/sp_login_email"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/colorAccent2">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/register_serviceprovider_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/ic_email_black_24dp"
+                            android:fontFamily="@font/open_sans"
+
+                            android:hint="Email"
+                            android:inputType="textEmailAddress"
+                            android:textColorHint="#fff"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        app:passwordToggleEnabled="true"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/colorAccent2">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Password"
+                            android:id="@+id/register_serviceprovider_password"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColorHint="#fff"
+                            android:fontFamily="@font/open_sans"
+                            android:inputType="textPassword" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Sign Up"
+                        android:id="@+id/register_serviceprovider_signUp"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="#fff"
+                        android:background="@drawable/background_service_provider"
+                        android:textAllCaps="false" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="12"
+                        android:gravity="center"
+                        android:layout_marginTop="15dp">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:background="#BDBDBD"
+                            android:layout_weight="4"/>
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000"
+                            android:id="@+id/register_serviceprovider_LogIn"
+                            android:text="Already Have Account ! Log In"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/montserrat"
+                            android:layout_weight="5"
+                            android:textSize="17sp"
+                            android:textAlignment="center"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:background="#BDBDBD"
+                            android:layout_weight="4"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/sp_activity_register_toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
+
+
+</RelativeLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="0dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:src="@drawable/icons_profile"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:padding="7dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guest"
+                android:id="@+id/all_users_row_name"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:fontFamily="@font/montserrat"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/all_users_row_details"
+                android:text="+919918385660 \nrajat13.kumar@gmail.com"
+                android:fontFamily="@font/montserrat"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/all_users_row_service"
+                android:text="Service : "
+                android:fontFamily="@font/montserrat"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/fragment_account_edit"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:layout_weight=".2"
+            android:src="@drawable/ic_visibility_black_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reject"
+            android:id="@+id/all_users_row_reject"
+            android:textColor="#000"
+            android:fontFamily="@font/montserrat"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:backgroundTint="#fff"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Accept"
+            android:id="@+id/all_users_row_accept"
+            android:textColor="#fff"
+            android:fontFamily="@font/montserrat"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:backgroundTint="#000"
+            />
+
+    </LinearLayout>
+</LinearLayout>

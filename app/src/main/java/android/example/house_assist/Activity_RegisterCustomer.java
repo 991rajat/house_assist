@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class Activity_RegisterCustomer extends AppCompatActivity {
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
     private Toolbar toolbar;
     private TextView customer_Login;
     private EditText customer_name,customer_email,customer_mobile,customer_password;
@@ -30,11 +31,13 @@ public class Activity_RegisterCustomer extends AppCompatActivity {
         customer_password = findViewById(R.id.register_customer_password);
         customer_SignUp = findViewById(R.id.register_customer_signUp);
 
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
         //Toolbar Intialize
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
         //Events
         customer_Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +45,7 @@ public class Activity_RegisterCustomer extends AppCompatActivity {
                 startActivity(new Intent(Activity_RegisterCustomer.this,Activity_LogInCustomer.class));
             }
         });
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
         customer_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +69,7 @@ public class Activity_RegisterCustomer extends AppCompatActivity {
 
 
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
     private boolean validate()
     {
