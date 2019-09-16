@@ -191,9 +191,9 @@ public class Fragment_Orders extends Fragment {
                                         TextView mobile = dialogView.findViewById(R.id.alertdilog_mobile);
                                         TextView address1 = dialogView.findViewById(R.id.alertdilog_address1);
                                         TextView address2 = dialogView.findViewById(R.id.alertdilog_address2);
-                                        name.setText(data.getName());
-                                        mobile.setText(data.getMobile());
-                                        address1.setText(data.getAddress1());
+                                        name.setText("Name "+data.getName());
+                                        mobile.setText("Mobile " +data.getMobile());
+                                        address1.setText("Address "+data.getAddress1());
                                         address2.setText(data.getAddress2()+" "+data.getPincode());
                                         final AlertDialog dialog = builder.create();
                                         dialog.show();

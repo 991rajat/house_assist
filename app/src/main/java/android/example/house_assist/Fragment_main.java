@@ -14,10 +14,15 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 
 /**
@@ -35,6 +40,7 @@ public class Fragment_main extends Fragment {
     private Bundle bundle;
     private Double userLat,userLng;
     private CustomerUser_Data user_data;
+    MaterialSearchView searchView;
     public Fragment_main() {
         // Required empty public constructor
     }
@@ -51,6 +57,7 @@ public class Fragment_main extends Fragment {
         userLat = bundle.getDouble("userLat");
         userLng = bundle.getDouble("userLng");
         Log.d(TAG," Lng"+userLat+" Lng"+userLng);
+
         return inflater.inflate(R.layout.fragment_fragment_main, container, false);
     }
 
@@ -60,11 +67,12 @@ public class Fragment_main extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mCustomPagerAdapter = new CustomPagerAdapter(contextid);
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
-        mResources= new int[]{R.drawable.offsale, R.drawable.offsale, R.drawable.offsale};
+        mResources= new int[]{R.drawable.dismin, R.drawable.disminn, R.drawable.offsale};
         mViewPager.setAdapter(mCustomPagerAdapter);
         electrician = view.findViewById(R.id.electrician);
         plumber = view.findViewById(R.id.plumber);
         carpenter = view.findViewById(R.id.carpenter);
+
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
         //Electrician
@@ -139,5 +147,7 @@ public class Fragment_main extends Fragment {
             container.removeView((LinearLayout) object);
         }
     }
+
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 }

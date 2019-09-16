@@ -101,6 +101,8 @@ public class Activity_Previous_Orders extends AppCompatActivity {
                         for(DocumentSnapshot documentSnapshot: task.getResult())
                         {
                             Orders orders = new Orders();
+                            if(documentSnapshot.getData().get("name").toString().equals("name"))
+                                continue;
                             orders.setDate(documentSnapshot.getData().get("date").toString());
                             orders.setTime(documentSnapshot.getData().get("time").toString());
                             orders.setType(documentSnapshot.getData().get("type").toString());

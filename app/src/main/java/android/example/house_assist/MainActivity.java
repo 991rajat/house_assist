@@ -20,6 +20,7 @@ import android.example.house_assist.Models.ServiceProvider_Data;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -50,6 +51,7 @@ import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,10 +73,14 @@ public class MainActivity extends AppCompatActivity {
     private static String TAG = "TAG";
     private String UID,Type;
     private Double userLat,userLng;
+    private MaterialSearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(!new ConnectionDetector(MainActivity.this).isConnectingToInternet())
+            Toast.makeText(MainActivity.this,"No Internet",Toast.LENGTH_LONG).show();
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
         //Intialize
@@ -85,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         myDB = FirebaseFirestore.getInstance();
         bundle = new Bundle();
         progressDialog = new ProgressDialog(MainActivity.this);
+        searchView = findViewById(R.id.main_search_view);
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
@@ -236,6 +243,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        searchView.closeSearch();
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searchView.closeSearch();
+                Toast.makeText(MainActivity.this,"Comming Soon",Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
     }
@@ -246,6 +268,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        MenuItem item = menu.findItem(R.id.main_action_search);
+        searchView.setMenuItem(item);
         return true;
     }
 
@@ -356,6 +380,7 @@ public class MainActivity extends AppCompatActivity {
                         userLat = Double.parseDouble(data.getLatitude().toString());
                         userLng = Double.parseDouble(data.getLongitude().toString());
                         SharedPreferences sp = getSharedPreferences("UID",Context.MODE_PRIVATE);
+                        sp.edit().putString("name",data.getName()).apply();
                         Gson gson = new Gson();
                         String json = gson.toJson(data);
                         sp.edit().putString("user",json).apply();
@@ -417,6 +442,7 @@ public class MainActivity extends AppCompatActivity {
                         userLat = Double.parseDouble(data.getLatitude().toString());
                         userLng = Double.parseDouble(data.getLongitude().toString());
                         SharedPreferences sp = getSharedPreferences("UID",Context.MODE_PRIVATE);
+                        sp.edit().putString("name",data.getName()).apply();
                         Gson gson = new Gson();
                         String json = gson.toJson(data);
                         sp.edit().putString("service",json).apply();
@@ -470,4 +496,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 }
+
+

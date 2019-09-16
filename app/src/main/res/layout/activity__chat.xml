@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    tools:context=".Activity_Chat">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#424242"
+        app:titleTextColor="#fff"
+        app:titleTextAppearance="@font/montserrat"
+        android:id="@+id/chat_toolbar"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/chat_toolbar"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:id="@+id/chat_recyclerview"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:background="@drawable/background_chat"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_alignParentBottom="true"
+        >
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".8"
+            android:hint="Message Type..."
+            android:textColorHint="#9E9E9E"
+            android:id="@+id/chat_edit"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:id="@+id/chat_send"
+            android:src="@drawable/ic_send_black_24dp"
+            android:layout_weight=".15"/>
+    </LinearLayout>
+
+</RelativeLayout>

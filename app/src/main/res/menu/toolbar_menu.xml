@@ -5,4 +5,9 @@
         android:title=""
         android:icon="@drawable/ic_my_location_black_24dp"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/main_action_search"
+        android:icon="@drawable/ic_action_action_search"
+        android:title="Search Service"
+        app:showAsAction="always" />
 </menu>

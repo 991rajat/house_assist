@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment_main">
 
+
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
@@ -18,6 +19,7 @@
             <androidx.viewpager.widget.ViewPager
                 android:layout_width="match_parent"
                 android:padding="5dp"
+                android:overScrollMode="never"
                 android:id="@+id/pager"
                 android:layout_height="200dp"/>
 
@@ -137,7 +139,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Massage"
+                        android:text="Massage\n  SOON"
                         android:textColor="#000"
                         android:textSize="17sp"
                         android:layout_gravity="center"
@@ -161,7 +163,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cleaning"
+                        android:text="Cleaning\n   SOON"
                         android:textColor="#000"
                         android:textSize="17sp"
                         android:layout_gravity="center"
@@ -182,7 +184,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Painting"
+                        android:text="Painting \n   SOON"
                         android:textColor="#000"
                         android:textSize="17sp"
                         android:layout_gravity="center"
@@ -215,7 +217,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Appliances"
+                        android:text="Appliances\n     SOON"
                         android:textColor="#000"
                         android:textSize="17sp"
                         android:layout_gravity="center"
@@ -239,7 +241,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Salon"
+                        android:text="Salon\nSOON"
                         android:textColor="#000"
                         android:textSize="17sp"
                         android:layout_gravity="center"
@@ -271,12 +273,23 @@
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Other  Services"
+                android:gravity="center"
+                android:background="#fff"
+                android:textColor="#000"
+                android:layout_marginTop="3dp"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/open_sans"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="3dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/offsale"/>
+                android:src="@drawable/disminn"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"

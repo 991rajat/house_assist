@@ -63,13 +63,15 @@ public class Fragment_Orders_Adapter extends RecyclerView.Adapter<Fragment_Order
                 bottomSheetDialogRating.show();
 
                 rating_Button.setOnClickListener(new View.OnClickListener() {
-                    final double no_of_orders = Double.parseDouble(list.get(position).getNo_Of_Orders())+1;
-                    private double rate = (Double.parseDouble(list.get(position).getRating())+ratingBar.getRating())/no_of_orders;
-                    double finalRate = rate;
-                    double finalNo_of_orders = no_of_orders;
                     @Override
                     public void onClick(View v) {
-
+                        Log.d("TAGh",""+ratingBar.getRating());
+                        final double no_of_orders = Double.parseDouble(list.get(position).getNo_Of_Orders());
+                        double rate = (Double.parseDouble(list.get(position).getRating())*no_of_orders+ratingBar.getRating())/(no_of_orders+1);
+                        double finalRate = (double) Math.round(rate * 100) / 100;;
+                        double finalNo_of_orders = no_of_orders+1;
+                        Log.d("TAGh",""+ratingBar.getRating());
+                        //Toast.makeText(context,""+ratingBar.getRating(),Toast.LENGTH_SHORT).show();
                         FirebaseFirestore.getInstance().collection("service_providers").
                                 document(list.get(position).getEmail()).update("booked","no","rating",String.valueOf(finalRate),"no_of_orders",String.valueOf(finalNo_of_orders))
                         .addOnCompleteListener(new OnCompleteListener<Void>() {

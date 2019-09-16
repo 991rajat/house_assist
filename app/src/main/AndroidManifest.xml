@@ -3,6 +3,8 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="android.example.house_assist">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,36 +13,56 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_Previous_Orders"></activity>
+        <activity android:name=".Activity_Chat"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".Activity_Previous_Orders"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity"
+            />
         <activity
             android:name=".Activity_Service_Booked"
-            android:parentActivityName=".Activity_WhichServiceProviders" />
+            android:parentActivityName=".Activity_WhichServiceProviders"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activity_WhichServiceProviders"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".Activity_Map" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity_Map"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activity_Edit_Profile"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activity_All_ServiceUser"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".Activity_Admin_Authenticate" />
-        <activity android:name=".Activity_ServiceProviderDetails" />
-        <activity android:name=".Activity_OTPServiceProvider" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity_Admin_Authenticate"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity_ServiceProviderDetails"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity_OTPServiceProvider"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activity_LogInServiceProvider"
-            android:parentActivityName=".Activity_Start" />
+            android:parentActivityName=".Activity_Start"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activity_RegisterServiceProvider"
-            android:parentActivityName=".Activity_LogInServiceProvider" />
-        <activity android:name=".Activity_OTPCustomer" />
+            android:parentActivityName=".Activity_LogInServiceProvider"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity_OTPCustomer"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activity_LogInCustomer"
-            android:parentActivityName=".Activity_Start" />
+            android:parentActivityName=".Activity_Start"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activity_RegisterCustomer"
-            android:parentActivityName=".Activity_LogInCustomer" />
+            android:parentActivityName=".Activity_LogInCustomer"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activity_Start"
             android:launchMode="singleTop">
@@ -50,15 +72,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <dist:module dist:instant="true" />
 

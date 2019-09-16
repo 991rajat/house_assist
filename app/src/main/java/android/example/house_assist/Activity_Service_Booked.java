@@ -8,6 +8,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.example.house_assist.Models.CustomerUser_Data;
 import android.example.house_assist.Models.ServiceProvider_Data;
@@ -25,10 +26,13 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.ServerTimestamp;
 import com.google.firebase.firestore.WriteBatch;
 import com.google.gson.Gson;
 
@@ -46,7 +50,7 @@ public class Activity_Service_Booked extends AppCompatActivity {
     private ServiceProvider_Data serviceProviderData;
     private CustomerUser_Data customerUser_data;
     private TextView name,service,price,service_type,distance;
-    private Button submit;
+    private Button submit,chat;
     private TextView rating;
     CircleImageView imageView;
     private ProgressDialog progressDialog;
@@ -71,6 +75,7 @@ public class Activity_Service_Booked extends AppCompatActivity {
         distance = findViewById(R.id.activity_service_booked_distance);
         toolbar  = findViewById(R.id.activity_service_booked_toolbar);
         layout = findViewById(R.id.activity_service_booked_layout);
+        chat = findViewById(R.id.activity_service_booked_chat);
         progressDialog = new ProgressDialog(Activity_Service_Booked.this);
         //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
         SharedPreferences sp = getSharedPreferences("UID", Context.MODE_PRIVATE);
@@ -92,7 +97,36 @@ public class Activity_Service_Booked extends AppCompatActivity {
                 Log.d(TAG,"hhhhhhhhhhhhhh");
                 Updatetask updatetask = new Updatetask();
                 updatetask.execute(serviceProviderData.getEmail());
+                submit.setText("BOOKED");
 
+            }
+        });
+
+        //----------------------------------------------------------------------------------------------------------------------------------
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String,Object> map = new HashMap<>();
+                map.put("message","Hi");
+                map.put("timestamp",FieldValue.serverTimestamp());
+                map.put("from",customerUser_data.getName());
+                map.put("to",serviceProviderData.getName());
+                myDB.collection("chat").document(customerUser_data.getName()).collection(serviceProviderData.getName()).add(map);
+                myDB.collection("chat").document(serviceProviderData.getName()).collection(customerUser_data.getName()).add(map);
+                myDB.collection("chat").document(customerUser_data.getName()).collection(serviceProviderData.getName()).document("message").set(map);
+                myDB.collection("chat").document(serviceProviderData.getName()).collection(customerUser_data.getName()).document("message").set(map);
+                Map<String,Object> map1 = new HashMap<>();
+                map1.put("name",customerUser_data.getName());
+                Map<String,Object> map2 = new HashMap<>();
+                map2.put("name",serviceProviderData.getName());
+                myDB.collection("chat").document(serviceProviderData.getName()).collection("chat_with").add(map1);
+                myDB.collection("chat").document(customerUser_data.getName()).collection("chat_with").add(map2);
+                Intent intent = new Intent(Activity_Service_Booked.this,Activity_Chat.class);
+                intent.putExtra("to",serviceProviderData.getName());
+                intent.putExtra("from",customerUser_data.getName());
+                startActivity(intent);
+                chat.setText("Added To CHAT ROOM");
+                chat.setEnabled(false);
             }
         });
     }
@@ -116,8 +150,9 @@ public class Activity_Service_Booked extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();
             progressBarSet();
+            super.onPreExecute();
+
         }
         @Override
         protected Void doInBackground(String... strings) {
@@ -132,7 +167,7 @@ public class Activity_Service_Booked extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
 
-
+                            progressBarUnset();
                             Toast.makeText(Activity_Service_Booked.this,"Service Booked",Toast.LENGTH_LONG).show();
                             Log.d(TAG,"BOOKED");
 
@@ -151,9 +186,9 @@ public class Activity_Service_Booked extends AppCompatActivity {
             map1.put("time",time);
             map1.put("date",formattedDate);
             map1.put("type",serviceProviderData.getService());
-            map1.put("mobile",serviceProviderData.getEmail());
+            map1.put("mobile",customerUser_data.getMobile());
             map1.put("price",serviceProviderData.getPrice());
-            map1.put("name",serviceProviderData.getName());
+            map1.put("name",customerUser_data.getName());
             myDB.collection("orders").document(strings[0]).collection("history").add(map1).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
@@ -168,7 +203,7 @@ public class Activity_Service_Booked extends AppCompatActivity {
             map2.put("type",serviceProviderData.getService());
             map2.put("mobile",customerUser_data.getMobile());
             map2.put("price",serviceProviderData.getPrice());
-            map2.put("name",customerUser_data.getName());
+            map2.put("name",serviceProviderData.getName());
             myDB.collection("orders").document(UID).collection("history").add(map2).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
@@ -177,7 +212,7 @@ public class Activity_Service_Booked extends AppCompatActivity {
             });
 
 
-            progressBarUnset();
+
 
             return null;
         }

@@ -19,6 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/main_activity_toolbar"
             app:titleTextColor="#fff"
@@ -26,9 +29,15 @@
             android:layout_width="match_parent"
             app:popupTheme="@color/whiteTextColor"
             app:layout_scrollFlags="scroll|enterAlways"
-            android:layout_height="wrap_content"
+            android:layout_height="?attr/actionBarSize"
             android:background="#212121"
             />
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id="@+id/main_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        </FrameLayout>
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -44,11 +53,14 @@
         android:id="@+id/activit_main_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
         app:itemIconTint="#212121"
         app:itemTextAppearance="@style/RobotoTextViewStyle"
         app:itemTextColor="#212121"
         android:background="@color/whiteTextColor"
+        app:elevation="2dp"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+        android:layout_gravity="bottom"
+        app:layout_insetEdge="bottom"
         app:menu="@menu/main_activity_bottom_menu"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
@@ -64,6 +76,7 @@
         app:itemTextColor="#212121"
         app:itemBackground="@color/whiteTextColor"
         app:menu="@menu/activity_main_drawer"
+
         android:layout_height="match_parent"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
