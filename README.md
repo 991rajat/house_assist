@@ -1,4 +1,4 @@
-## House Repair
+# House Assist
 App focus on finding home related services in nearby location.
 ### Technologies Used
 Java, Android, FireBase, MapBox.
