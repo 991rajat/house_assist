@@ -21,8 +21,8 @@ Java, Android, FireBase, MapBox.
 <table>
   
   ### Contributors
-  [Rajat](https://github.com/991rajat)
-  [Sanyam](https://github.com/sanyamsinghal)
-  [Vijay](https://github.com/vijayprakashgautam)
+  * [Rajat](https://github.com/991rajat)
+  * [Sanyam](https://github.com/sanyamsinghal)
+  * [Vijay](https://github.com/vijayprakashgautam)
      
 
