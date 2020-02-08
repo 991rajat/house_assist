@@ -3,7 +3,7 @@ App focus on finding home related services in nearby location.
 ### Technologies Used
 Java, Android, FireBase, MapBox.
  ### Features  
- * User can register as a customer or as a utility provider
+ * User can register both as a customer or as a utility provider
  * Interactive Map
  * Chat rooms
 ### Screenshots
