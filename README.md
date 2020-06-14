@@ -22,7 +22,5 @@ Java, Android, FireBase FireStore, MapBox.
   
   ### Contributors
   * [Rajat](https://github.com/991rajat)
-  * [Sanyam](https://github.com/sanyamsinghal)
-  * [Vijay](https://github.com/vijayprakashgautam)
      
 
